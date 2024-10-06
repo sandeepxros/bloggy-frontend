@@ -1,5 +1,7 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import SidePanel from "./components/SidePanel";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ChakraProvider>
+          <SidePanel> {children} </SidePanel>
+        </ChakraProvider>
       </body>
     </html>
   );
